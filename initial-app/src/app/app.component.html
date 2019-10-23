@@ -1,0 +1,27 @@
+<h3>I'm in the app component</h3>
+<hr />
+<p
+  [ngStyle]="{ backgroundColor: getColor() }"
+  [ngClass]="{ online: status === 'online' }"
+>
+  Item with ID {{ id }} is {{ status }}
+</p>
+<p>Id is {{ id > 5 ? "greater" : "less" }} than 5.</p>
+<p>method call Id {{ getServerStatus() }}</p>
+<p [innerText]="allowAddData"></p>
+<label>Your data:</label>
+<input type="text" class="form-control" [(ngModel)]="name" />
+<button
+  [disabled]="!allowAddData"
+  class="btn btn-primary"
+  (click)="onCreateData()"
+>
+  Add Data
+</button>
+
+<p *ngIf="dataCreated; else noData">Data: {{ dataCreationStatus }}</p>
+<ng-template #noData> <p>No data was created</p></ng-template>
+<p>Name: {{ name }}</p>
+
+<p>Servers:</p>
+<app-server></app-server>

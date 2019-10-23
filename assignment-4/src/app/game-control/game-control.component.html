@@ -1,0 +1,23 @@
+<p>
+  <input
+    type="button"
+    value="Start"
+    (click)="startGame()"
+    class="btn btn-success"
+  />
+  <input
+    type="button"
+    value="Stop"
+    (click)="stopGame()"
+    class="btn btn-danger"
+  />
+</p>
+<p>
+  <input
+    type="button"
+    value="Reset"
+    (click)="resetGame()"
+    class="btn btn-secondary"
+  />
+</p>
+<p>Current: {{ increment }}</p>
