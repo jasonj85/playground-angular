@@ -1,0 +1,66 @@
+<div class="container">
+  <h3>Payment Form</h3>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for="name">Payee Name </label>
+      <input id="name" type="text" (input)="onNameChange($event.target.value)" class="form-control" />
+    </div>
+  
+    <div class="col">
+      <label><strong>Name</strong></label>
+      <div>{{ name | titlecase }}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for="name">Payment Date </label>
+      <input id="name" type="date" (input)="onDateChange($event.target.value)" class="form-control" />
+    </div>
+  
+    <div class="col">
+      <label><strong>Payment Date</strong></label>
+      <div>{{ date | date: "longDate" }}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for="name">Payment Amount </label>
+      <input id="name" type="text" (input)="onAmountChange($event.target.value)" class="form-control" />
+    </div>
+  
+    <div class="col">
+      <label><strong>Payment Amount</strong></label>
+      <div>{{ amount | currency:"GBP" }}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for="name">Height </label>
+      <input id="name" type="text" (input)="onHeightChange($event.target.value)" class="form-control" />
+    </div>
+  
+    <div class="col">
+      <label><strong>Height</strong></label>
+      <div>{{ height | number:"1.0-1" }} cm</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label for="name">Miles </label>
+      <input id="name" type="text" (input)="onMilesChange($event.target.value)" class="form-control" />
+    </div>
+  
+    <div class="col">
+      <label><strong>Converted Distance</strong></label>
+      <div>{{ miles | convertDistance:"m" | number:"1.0-2" }}</div>
+    </div>
+  </div>
+</div>
+
+<!-- mainly for debugging purposes -->
+{{ car | json }}
