@@ -1,0 +1,36 @@
+<nav>
+  <ul class="pagination">
+    <li class="page-item"
+    [ngClass]="{disabled: currentPage === 0}"
+    >
+      <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
+    </li>
+    <ng-container *ngFor="let image of images; let i = index;">
+
+      <li class="page-item" 
+      [ngClass]="{active: i === currentPage}"
+      >
+      <a class="page-link"
+      (click)="currentPage = i"
+      *ngIf="checkPageIndex(i)"
+      >{{i + 1}}</a>
+    </li>
+  </ng-container>
+    <li class="page-item"
+    [ngClass]="{disabled: currentPage === images.length - 1 }"
+    >
+      <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+    </li>
+  </ul>
+</nav>
+
+<div>
+  <h3>{{images[currentPage].title}}</h3>
+  <img src={{images[currentPage].url}} alt={{images[currentPage].title}} />
+</div>
+
+<div [ngSwitch]="currentPage" appClass [backgroundColor]="'#dddddd'">
+  <div *ngSwitchCase="0">This is the first item!</div>
+  <div *ngSwitchCase="images.length - 1">This is the final item!</div>
+  <div *ngSwitchDefault>This is a image somewhere in the middle!</div>
+</div>
