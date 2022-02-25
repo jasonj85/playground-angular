@@ -6,9 +6,9 @@
       <a class="page-link" (click)="currentPage = currentPage - 1">Previous</a>
     </li>
     <ng-container *ngFor="let image of images; let i = index;">
-
+      <!-- Custom directive -->
       <li class="page-item" 
-      [ngClass]="{active: i === currentPage}"
+      [appClass]="{active: i === currentPage}"
       >
       <a class="page-link"
       (click)="currentPage = i"
@@ -29,8 +29,14 @@
   <img src={{images[currentPage].url}} alt={{images[currentPage].title}} />
 </div>
 
-<div [ngSwitch]="currentPage" appClass [backgroundColor]="'#dddddd'">
+<!-- <div [ngSwitch]="currentPage" [appClass]="'#dddddd'"> -->
+<div [ngSwitch]="currentPage">
   <div *ngSwitchCase="0">This is the first item!</div>
   <div *ngSwitchCase="images.length - 1">This is the final item!</div>
   <div *ngSwitchDefault>This is a image somewhere in the middle!</div>
 </div>
+
+<!-- custom directive -->
+<ul *appJJtimes="5">
+  <li>Yo bro!</li>
+</ul>
